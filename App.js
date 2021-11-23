@@ -1,11 +1,11 @@
 import React from 'react';
 import {SafeAreaView} from 'react-native';
-import HomeScreen from './src/Screens/Home';
+import UberMap from './src/components/Map';
 
 const App = () => {
   return(
     <SafeAreaView>
-      <HomeScreen/>
+      <UberMap/>
     </SafeAreaView>
   )
 }
