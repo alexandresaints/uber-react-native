@@ -47,7 +47,7 @@ export default class UberMap extends Component{
 const styles = StyleSheet.create({
     map: {
         width: '100%',
-        height: 400
+        height: 800
     },
     search: {
         maxHeight: 200
