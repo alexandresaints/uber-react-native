@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import { View, Text, StyleSheet } from "react-native";
 import Geolocation from '@react-native-community/geolocation';
 import MapView from "react-native-maps";
+import Search from "../Search";
 
 export default class UberMap extends Component{
     state = {
@@ -31,11 +32,13 @@ export default class UberMap extends Component{
         const {region} = this.state
     return(
         <View style={{flex: 1}}>
+            
             <MapView style={styles.map}
                 region={region}
                 showsUserLocation={true}
                 loadingEnabled={true}
             />
+            <Search style={styles.search}/>
         </View>
     )
 }
@@ -43,7 +46,10 @@ export default class UberMap extends Component{
 
 const styles = StyleSheet.create({
     map: {
-        width: 400,
-        height: 1000
+        width: '100%',
+        height: 400
+    },
+    search: {
+        maxHeight: 200
     }
 })

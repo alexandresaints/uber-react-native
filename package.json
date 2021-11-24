@@ -13,6 +13,7 @@
     "@react-native-community/geolocation": "^2.0.2",
     "react": "17.0.2",
     "react-native": "0.66.3",
+    "react-native-google-places-autocomplete": "^2.4.1",
     "react-native-location": "^2.5.0",
     "react-native-maps": "^0.29.4"
   },
