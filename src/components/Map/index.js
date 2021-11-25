@@ -1,5 +1,5 @@
 import React, {Component, Fragment} from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Image } from "react-native";
 import { getPixelSize } from "../../utils";
 import Geolocation from '@react-native-community/geolocation';
 import MapView, {Marker} from "react-native-maps";
@@ -7,10 +7,18 @@ import Geocoder from "react-native-geocoding";
 
 import Search from "../Search";
 import Directions from "../Directions";
+import Details from "../Details";
 
 import markerImage from '../../assets/marker.png'
-
-import { LocationBox, LocationText, LocationTimeBox, LocationTimeText, LocationTimeTextSmall } from "./styles";
+import backImage from '../../assets/back.png'
+import { 
+LocationBox,
+LocationText,
+LocationTimeBox,
+LocationTimeText,
+LocationTimeTextSmall,
+Back }
+from "./styles";
 
 Geocoder.init('AIzaSyAQmiRaSeTy6PD2pJszjLt9jpwmGkFHNj8')
 
@@ -19,15 +27,17 @@ export default class UberMap extends Component{
     region: null,
     destination: null,
     duration: null,
+    location: null,
 }
     async componentDidMount() {
         Geolocation.getCurrentPosition(
             async ({coords: {latitude, longitude}}) => {
-                // const response = await Geocoder.from({latitude, longitude});
-                // const address = response.results[0].formatted_address
-                // const location = address.substring(0, address.indexOf(','))
+                const response = await Geocoder.from({latitude, longitude});
+                const address = response.results[0].formatted_address;
+                const location = address.substring(0, address.indexOf(','))
 
                 this.setState({
+                    location,
                     region: {
                         latitude,
                         longitude,
@@ -57,8 +67,12 @@ export default class UberMap extends Component{
         })
     }
 
+    handleBack = () => {
+        this.setState({destination: null});
+    }
+
     render() {
-        const {region, destination, duration} = this.state
+        const {region, destination, duration, location} = this.state
     return(
         <View style={{flex: 1}}>
             
@@ -74,15 +88,14 @@ export default class UberMap extends Component{
                 origin={region}
                 destination={destination}
                 onReady={result => {
-                    // this.setState({ duration: Math.floor(result.duration) });
+                    // this.setState({ duration: Math.floor(result.duration) })
                     this.mapView.fitToCoordinates(result.coordinates, {
                         edgePadding: {
                             left: getPixelSize(50),
                             right: getPixelSize(50),
                             top: getPixelSize(50),
-                            bottom: getPixelSize(50)
+                            bottom: getPixelSize(150)
                         }
-
                     })
                 }}
             />
@@ -96,23 +109,29 @@ export default class UberMap extends Component{
             </LocationBox>
             </Marker>
 
-            <Marker 
-                coordinate={region} 
-                anchor={{x: 0, y: 0}} 
-            >
+            <Marker coordinate={region} anchor={{x: 0, y: 0}} >
             <LocationBox>
                 <LocationTimeBox>
                     <LocationTimeText>{duration}</LocationTimeText>
                     <LocationTimeTextSmall>MIN</LocationTimeTextSmall>
                 </LocationTimeBox>
-                <LocationText>R. Olga M. Guimarães</LocationText>
+                <LocationText>{location}</LocationText>
             </LocationBox>
             </Marker>
-            
-            </Fragment>
+        </Fragment>
         )}
             </MapView>
-            <Search onLocationSelected={this.handleLocationSelected}/>
+
+            {destination ? (
+                <Fragment>
+                    <Back onPress={this.handleBack}>
+                        <Image source={backImage} />
+                    </Back>
+                <Details/>
+                </Fragment>
+            ) : ( 
+                <Search onLocationSelected={this.handleLocationSelected}/>
+            )}
         </View>
     )
 }

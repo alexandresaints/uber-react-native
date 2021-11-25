@@ -40,3 +40,8 @@ export const LocationTimeTextSmall = styled.Text`
     font-size: 10px;
     text-align: center;
 `
+export const Back = styled.TouchableOpacity`
+    position: absolute;
+    top: ${Platform.select({ios: '60px', android:'40px'})};
+    left: 20px;
+`
