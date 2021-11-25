@@ -11,6 +11,7 @@ React-Native, usando as libs: react-native-maps, google-places-autocomplete, rea
 
 ## Visualização do projeto:
 
+![ezgif-3-155dd7148ab4](https://user-images.githubusercontent.com/73872086/143386310-93066f68-92aa-4e62-aa9d-a126b779563c.gif)
 
 
 ### 🇺🇸
@@ -26,5 +27,6 @@ React-Native, using the libs: react-native-maps, google-places-autocomplete, rea
 
 ## Project preview:
 
+![ezgif-3-155dd7148ab4](https://user-images.githubusercontent.com/73872086/143386327-7d1100c1-77f9-4d8a-8513-532b16d5c827.gif)
 
 
