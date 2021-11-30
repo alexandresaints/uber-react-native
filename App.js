@@ -5,9 +5,7 @@ import Route from './src/routes';
 
 const App = () => {
   return(
-    <SafeAreaView>
       <Route/>
-    </SafeAreaView>
   )
 }
 
