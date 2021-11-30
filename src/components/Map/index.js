@@ -112,7 +112,7 @@ export default class UberMap extends Component{
             <Marker coordinate={region} anchor={{x: 0, y: 0}} >
             <LocationBox>
                 <LocationTimeBox>
-                    <LocationTimeText>{duration}</LocationTimeText>
+                    <LocationTimeText>50</LocationTimeText>
                     <LocationTimeTextSmall>MIN</LocationTimeTextSmall>
                 </LocationTimeBox>
                 <LocationText>{location}</LocationText>
