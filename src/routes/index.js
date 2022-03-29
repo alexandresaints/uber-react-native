@@ -32,7 +32,7 @@ function LoginScreen({navigation}){
                 style={{backgroundColor: 'blue', padding: 20, marginTop: 10}}
                 >
                 <Text style={{color: 'white', fontSize: 18}}>
-                    Checar rota <Icon name="arrow" size={18} color="#FFF" />
+                    Checar rota
                 </Text>
                 </TouchableOpacity>
         </View>

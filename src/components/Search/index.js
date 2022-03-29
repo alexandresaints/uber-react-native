@@ -13,7 +13,7 @@ export default class Search extends Component {
         return(
          <GooglePlacesAutocomplete
             placeholder="Para onde?"
-            placeholderTextColor='#333'
+            placeholderTextColor='#000'
             onPress={onLocationSelected}
             query={{
                 key: 'AIzaSyAQmiRaSeTy6PD2pJszjLt9jpwmGkFHNj8',
@@ -35,6 +35,7 @@ export default class Search extends Component {
                     backgroundColor: '#FFF',
                     marginHorizontal: 20,
                     elevation: 5,
+                    color: '#000',
                     shadowColor: '#000',
                     shadowOpacity: 0.1,
                     shadowOffset: {x: 0, y: 0},

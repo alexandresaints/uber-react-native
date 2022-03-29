@@ -139,7 +139,7 @@ export default class UberMap extends Component{
 
 const styles = StyleSheet.create({
     map: {
-        width: '100%',
+        width: '101%',
         height: 800
     }
 })
